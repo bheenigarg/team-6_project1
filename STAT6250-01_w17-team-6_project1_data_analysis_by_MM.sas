@@ -37,7 +37,7 @@ run;
 
 *Research Question 3: Does the amount of time between being contacted by campaings (pdays) affect the rate of subscription?;
 *Rationale: This can allow for a standard to be set for the amount of days that should elapse before contacting a client.;
-*Methodology: 
+*Methodology: Format days between calls and compare to subscription status.;
 
 proc format ;
   value pdfmt 1 = '1 day'
