@@ -44,8 +44,26 @@ run;
 
 filename bank clear;
 
-
-
-
-
-
+proc format ;
+value durfmt low- 60 = '< 1 minute'
+	     61 - 120 = '1 - 2 minutes'
+	     121 - 180 = '2 - 3 minutes'
+             181 - 240 = '3 - 4 minutes'
+	     241 - 300 = '4 - 5 minutes'
+	     301 - 360 = '5 - 6 minutes'
+   	     361 - 420 = '6 - 7 minutes'
+	     421 - 480 = '7 - 8 minutes'
+             481 - 540 = '8 - 9 minutes'
+             541 - 600 = '9 - 10 minutes'
+	     601 - high = '> 10 minutes';
+value pdfmt 1 = '1 day'
+	    2 = '2 days'
+	    3 = '3 days'
+	    4 = '4 days'
+	    5 = '5 days'
+	    6 = '6 days'
+	    7 = '7 days'
+	    8 = '8 days'
+            9 = '9 days'
+            10 - 998 = 'More than 10 days'
+	    999 = 'Not previously contacted';
