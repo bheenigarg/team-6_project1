@@ -43,7 +43,7 @@ run;
 
 proc freq data = bank_data;
               tables y*campaign;
-		          format y yfmt.;
+	          format y yfmt.;
 run;
 
 *
@@ -66,7 +66,7 @@ run;
 
 proc freq data = bank_data;
               tables y*previous*campaign;
-		          format y yfmt;
+	          format y yfmt;
 run;
 
 *
@@ -82,16 +82,16 @@ Note: Important variables that should be analyzed: job and poutcome.
 /* Sort the data of variable "job" */
 
 proc sort data = bank_data out = bank_data;
-     by descending job;
+              by descending job;
 run;
 
 /* Show "job" variable by groups of same occupation in different tables with the sum of only subscribers */
 
 proc print data = bank_data;
-           by job;
-		   pageby job;
-		   var job y;
-		   where y = yes;
-		   sum y;
+               by job;
+	           pageby job;
+		       var job y;
+		           where y = yes;
+		               sum y;
 run;
 
