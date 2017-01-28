@@ -31,11 +31,10 @@ Unique ID Schema: Client ID(randomly generated) is the primary key.
 
 *setting up environmetal parameters;
 %let inputDatasetURL=
-https://raw.githubusercontent.com/stat6250/team-6_project1/master/bank-additional-full.csv 
-; *link to raw data;
+https://github.com/stat6250/team-6_project1/blob/master/bank-additional-full.xlsx
+; 
 
 *Load raw data over the wire;
-
 filename bank TEMP;
 
 proc http method = "get"
@@ -45,14 +44,24 @@ run;
 
 proc import file = bank 
             out= bank_data
-	        dbms = csv replace;
-		    delimiter = ";";
-			getnames= yes; 
+	        dbms = xlsx
+	            getnames= yes; 
 run;
 
 filename bank clear;
 
+* Check raw BANK dataset for duplicates with respect to primary key;
+proc sort nodupkey data=bank_data dupout=bank_data_dups out=_null_;
+         by Client_ID;
+run;
 
+
+* build analytical dataset from BANK dataset with the least number of colmns and
+minimal cleaning/transformation needed to address research questions in 
+corresponding data-analysis files;
+data bank_data_analytic_file;
+    retain
+        
 
 
 
