@@ -61,8 +61,25 @@ minimal cleaning/transformation needed to address research questions in
 corresponding data-analysis files;
 data bank_data_analytic_file;
     retain
-        
-
+        Campaign
+	Y
+	Previous
+	Job
+	Age
+	Duration
+	Pdays
+    ;
+    keep
+        Campaign
+	Y
+	Previous
+	Job
+	Age
+	Duration
+	Pdays
+    ;
+    set bank_data;
+run;
 
 
 
