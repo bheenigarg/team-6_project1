@@ -46,15 +46,15 @@ proc format ;
   value agefmt low- 24 = '< 25'
 	           25 - 29 = '25 - 30'
 	           30 - 34 = '30 - 35'
-			   35 - 39 = '35 - 40'
-			   40 - 44 = '40 - 45'
-			   45 - 49 = '45 - 50'
-			   50 - 54 = '50 - 55'
-			   55 - 60 = '55 - 60'
-			   60 - high = '> 60';
+	           35 - 39 = '35 - 40'
+	           40 - 44 = '40 - 45'
+	           45 - 49 = '45 - 50'
+		   50 - 54 = '50 - 55'
+		   55 - 60 = '55 - 60'
+		   60 - high = '> 60';
 
    value $yfmt 'yes' = '1'
-	           'no'  = '0';
+	       'no'  = '0';
 run;
 
 
@@ -85,30 +85,30 @@ data bank_data_analytic_file;
     Client_ID = _N_;
     retain Client_ID
            Campaign
-	         Y
-	         Previous
-	         Job
-	         Age
-	         Duration
-	         Pdays
+	   Y
+	   Previous
+	   Job
+	   Age
+	   Duration
+	   Pdays
            Housing
-		       Loan
-		       Marital
-		       Education
-		       Default;
-    keep Client_ID
-         Campaign
-	       Y
-	       Previous
-	       Job
-	       Age
-	       Duration
-	       Pdays
-         Housing
-		     Loan
-		     Marital
-		     Education
-		     Default;
+           Loan
+           Marital
+           Education
+           Default;
+    keep   Client_ID
+           Campaign
+	   Y
+	   Previous
+	   Job
+	   Age
+	   Duration
+	   Pdays
+           Housing
+           Loan
+           Marital
+           Education
+           Default;
          
     set bank_data;
 run;
