@@ -52,11 +52,11 @@ footnote1
 Methodology: Use PROC means to find average of variable "campaign". Use PROC 
 freq to find % of variable "y" with respect to variable "campaign".
 ;
-proc means data=bank_data;
+proc means data = bank_data;
                var campaign;
 run;
 
-proc freq data=bank_data;
+proc freq data = bank_data;
               tables y*campaign;
 run;
 title;
@@ -78,11 +78,11 @@ Methodology: Use PROC means to find average of phone calls for both "previous"
 and "campaign" variables . Use PROC freq to find the % of both "previous" and 
 "campaign" variables with respect to "y" variable.
 ;
-proc means data=bank_data;
+proc means data = bank_data;
                var previous campaign;
 run;
 
-proc freq data=bank_data;
+proc freq data = bank_data;
               tables y*previous*campaign;
 run;
 title;
@@ -103,11 +103,11 @@ footnote1
 Methodology: Use PROC sort to organize data to "job" variable. Use PROC print to
 show group of job occupations with the sum of only subscribers.
 ;
-proc sort data = bank_data out=bank_data;
+proc sort data = bank_data out = bank_data;
               by descending job;
 run;
 
-proc print data=bank_data;
+proc print data = bank_data;
                by job;
 	           pageby job;
 		       var job y;
