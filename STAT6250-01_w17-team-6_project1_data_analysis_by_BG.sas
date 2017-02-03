@@ -65,8 +65,7 @@ subscribed."
 
 Footnote3
 "Out of 36548 clients who haven't subscribed for the term deposit, 8.98% of clients
-have both loans while 39.16% have neither.
-"
+have both loans while 39.16% have neither."
 ;
 *
 Methodology: Use PROC FREQ to create a 3-way table. Two tables are generated for
@@ -106,7 +105,7 @@ substantial amount of subscriptions(414)."
 ;
 
 *
-Methodolgy: Use PROC FORMAT to divide the clients' age into 5-year bins with
+Methodolgy: Use PROC FORMAT to divide the clients age into 5-year bins with
 9 categories - <25, 25-30, 30-35, 35-40, 40-45, 45-50, 50-55, 55-60 and >60. 
 Then use PROC FREQ to view the counts of subscriptions for each age group.
 ;
@@ -131,9 +130,9 @@ their target group of customers."
 
 footnote1
 "The likelihood ratio chi-square of 1748.9181 with a p-value <0.0001 tells us
-that our model as a whole fits significantly better than an empty model. 
-"
+that our model as a whole fits significantly better than an empty model."
 ;
+
 footnote2
 "The Type 3 Analysis of Effects table shows the hypothesis tests for each of the
 variables in the model individually. The chi-square test statistics and associated 
@@ -147,12 +146,11 @@ respectively which are greater than the significance level of 0.05 and hence do 
 contribute to the model"
 ;
  
-
 footnote4
 "The age, job type, marital status, education level and credit default of customers, 
-are important factors in anticipating a potential subscription by them. 
-"
+are important factors in anticipating a potential subscription by them."
 ;
+
 *
 Methodology: Use PROC FORMAT to encode the subscription status- '1' indicates 'yes' 
 and '0' indicates 'no'. Then use PROC LOGISTIC regression to build a statistical model
