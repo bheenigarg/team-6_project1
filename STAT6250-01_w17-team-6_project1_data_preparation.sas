@@ -41,6 +41,7 @@ https://raw.githubusercontent.com/stat6250/team-6_project1/master/bank-additiona
 * formatting response variable, Y (subscription status) as 1 (yes)
   and 0(no);
 
+
 proc format ;
   value agefmt low- 24 = '< 25'
 	           25 - 29 = '25 - 30'
@@ -77,42 +78,38 @@ proc import file = bank
 
 filename bank clear;
 
-
 * build analytical dataset from BANK dataset with the least number of colmns and
 minimal cleaning/transformation needed to address research questions in 
 corresponding data-analysis files;
 data bank_data_analytic_file;
     Client_ID = _N_;
-    retain
-	    Client_ID
-        Campaign
-	    Y
-	    Previous
-	    Job
-	    Age
-	    Duration
-	    Pdays
-		Housing
-		Loan
-		Marital
-		Education
-		Default
-    ;
-    keep
-	    Client_ID
-        Campaign
-	    Y
-	    Previous
-	    Job
-	    Age
-	    Duration
-	    Pdays
-		Housing
-		Loan
-		Marital
-		Education
-		Default
-    ;
+    retain Client_ID
+           Campaign
+	         Y
+	         Previous
+	         Job
+	         Age
+	         Duration
+	         Pdays
+           Housing
+		       Loan
+		       Marital
+		       Education
+		       Default;
+    keep Client_ID
+         Campaign
+	       Y
+	       Previous
+	       Job
+	       Age
+	       Duration
+	       Pdays
+         Housing
+		     Loan
+		     Marital
+		     Education
+		     Default;
+         
     set bank_data;
 run;
 
