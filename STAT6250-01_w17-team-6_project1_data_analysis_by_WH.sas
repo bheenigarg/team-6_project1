@@ -109,7 +109,7 @@ proc sort data = bank_data_analytic_file out=bank_data_analytic_file;
               by descending job;
 run;
 
-proc print data = bank_data;
+proc print data=bank_data_analytic_file;
                by job;
 	           pageby job;
 		       var job y;
