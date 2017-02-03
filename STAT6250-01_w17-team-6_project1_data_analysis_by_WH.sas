@@ -109,10 +109,10 @@ run;
 
 proc print data = bank_data;
                by job;
-	           pageby job;
-		       var job y;
-		           where y = yes;
-		               sum y;
+	       pageby job;
+	       var job y;
+	       where y = yes;
+	       sum y;
 run;
 title;
 footnote;
