@@ -38,6 +38,9 @@ https://raw.githubusercontent.com/stat6250/team-6_project1/master/bank-additiona
 
 * create output formats;
 * formatting the age variables into buckets of 5 years;
+* formatting response variable, Y (subscription status) as 1 (yes)
+  and 0(no);
+
 
 proc format ;
   value agefmt low- 24 = '< 25'
@@ -48,9 +51,11 @@ proc format ;
 			   45 - 49 = '45 - 50'
 			   50 - 54 = '50 - 55'
 			   55 - 60 = '55 - 60'
-			   60 - high = '> 60'
-     ;
- run;
+			   60 - high = '> 60';
+
+   value $yfmt 'yes' = '1'
+	           'no'  = '0';
+run;
 
 
 * load raw Bank Marketing data over the wire;
@@ -73,41 +78,38 @@ proc import file = bank
 
 filename bank clear;
 
-* check raw BANK dataset for duplicates with respect to primary key;
-proc sort nodupkey 
-          data=bank_data 
-          dupout=bank_data_dups 
-          out=_null_
-     ;
-     by Client_ID;
-run;
-
-
 * build analytical dataset from BANK dataset with the least number of colmns and
 minimal cleaning/transformation needed to address research questions in 
 corresponding data-analysis files;
 data bank_data_analytic_file;
     Client_ID = _N_;
-    retain
-	    Client_ID
-        Campaign
-	    Y
-	    Previous
-	    Job
-	    Age
-	    Duration
-	    Pdays
-    ;
-    keep
-	    Client_ID
-        Campaign
-	    Y
-	    Previous
-	    Job
-	    Age
-	    Duration
-	    Pdays
-    ;
+    retain Client_ID
+           Campaign
+	         Y
+	         Previous
+	         Job
+	         Age
+	         Duration
+	         Pdays
+           Housing
+		       Loan
+		       Marital
+		       Education
+		       Default;
+    keep Client_ID
+         Campaign
+	       Y
+	       Previous
+	       Job
+	       Age
+	       Duration
+	       Pdays
+         Housing
+		     Loan
+		     Marital
+		     Education
+		     Default;
+         
     set bank_data;
 run;
 
