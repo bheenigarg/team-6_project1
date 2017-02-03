@@ -167,17 +167,16 @@ proc logistic data = bank_data_analytic_file descending;
                     education 
                     default  
                     housing
-                    loan / param=ref
-               ;
-		      model y = age
-		                job
-		                marital
-		                education
-		                default
-		                housing
-		                loan
-		      ;
-			  format y $yfmt. age agefmt.;
+                    loan / param=ref;
+	       model y = age
+		         job
+		         marital
+		         education
+		         default
+		         housing
+		         loan;
+			  
+              format y $yfmt. age agefmt.;
 run;
 title;
 footnote;
