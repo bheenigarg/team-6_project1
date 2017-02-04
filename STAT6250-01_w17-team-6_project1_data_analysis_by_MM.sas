@@ -41,7 +41,7 @@ footnote3
 ;
 *Methodology: Use PROC FREQ to find frequency of subscription status with previous campaign calls.;
 
-proc freq data = bank_data;
+proc freq data = bank_data_analytic_file;
   tables campaign*y/nocum norow nocol list;
   format y $yfmt.;
 run;
@@ -62,7 +62,7 @@ footnote2
 ;
 *Methodology: Use PROC FREQ to observe the frequency of subscriptions for each interval.;
          
-proc freq data = bank_data;
+proc freq data = bank_data_analytic_file;
   tables duration*y/nocum norow nocol list;
   format duration durfmt.
          y $yfmt.;
@@ -84,7 +84,7 @@ footnote2
 ;
 *Methodology: Format days between calls and compare to subscription status.;
 
-proc freq data = bank_data;
+proc freq data = bank_data_analytic_file;
   tables pdays*y/nocum norow nocol list;
   format pdays pdfmt.
          y $yfmt.;
