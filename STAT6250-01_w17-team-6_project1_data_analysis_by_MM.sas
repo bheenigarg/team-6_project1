@@ -28,7 +28,16 @@ title1
 "Research Question 1: Does the number of campaign calls affect if they obtain a subscription?"
 ;
 title2
-"Rationale: The number of phone calls necessary for effective marketing may vary depending on a client's age."
+"Rationale: There may be a number of phone calls necessary for effective marketing."
+;
+footnote1
+"Based on the output, it appears that the highest frequency and percent of successful subscriptions occurs with just one campaign call."
+;
+footnote2
+"As the number of campaign calls increases, the percent of subscriptions decreases, showing an inverse relationship."
+;
+footnote3
+"This information can result in less wasted time by only focusing on campaigning to individuals who have previously received less phone calls."
 ;
 *Methodology: Use PROC FREQ to find frequency of subscription status with previous campaign calls.;
 
@@ -37,12 +46,19 @@ proc freq data = bank_data;
   format y $yfmt.;
 run;
 title;
+footnote;
 
 title1
 "Research Question 2: Is there a relationship between duration of phone call and subscription?"
 ;
 title2
 "Rationale: If the duration of the phone call affects the likelihood of successful marketing, phone calls can be tailored for success."
+;
+footnote1
+"This output shows that the highest rate of successful subscriptions occurs for phone calls that last between 3-4 minutes and 4-5 minutes."
+;
+footnote2
+"These results can be used to limit the amount of time spent on a phone call to avoid wasted time on an individual who is unlikely to subscribe."
 ;
 *Methodology: Use PROC FREQ to observe the frequency of subscriptions for each interval.;
          
@@ -52,12 +68,19 @@ proc freq data = bank_data;
          y $yfmt.;
 run;
 title;
+footnote;
 
 title1
 "Research Question 3: Does the amount of time between being contacted by campaings (pdays) affect the rate of subscription?"
 ;
 title2
 "Rationale: This can allow for a standard to be set for the amount of days that should elapse before contacting a client."
+;
+footnote1
+"The output shown indicates that individuals are most likely to subscribe when 3 or 6 days have passed between previous campaign calls."
+;
+footnote2
+"This can be used to optimize the success rate by waiting the ideal amount of days between phone calls."
 ;
 *Methodology: Format days between calls and compare to subscription status.;
 
@@ -67,3 +90,4 @@ proc freq data = bank_data;
          y $yfmt.;
 run;
 title;
+footnote;
