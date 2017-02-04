@@ -77,6 +77,12 @@ title2
 footnote1
 "Two variables are being analyzed: previous and y."
 ;
+footnote2
+"Average number of calls for previous campaign for a client was .17 which is less than 1. It is a low average."
+;
+footnote3
+"Minimum calls were 0 and Maximum calls were 7 for previous campaign."
+;
 *
 Methodology: Use PROC means to find average of phone calls for the "previous"
 variable. Use PROC freq to find the % of the "previous" variable with respect to "y" variable.
