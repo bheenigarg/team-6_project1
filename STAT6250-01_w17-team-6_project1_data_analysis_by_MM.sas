@@ -77,9 +77,12 @@ title2
 "Rationale: This can allow for a standard to be set for the amount of days that should elapse before contacting a client."
 ;
 footnote1
-"The output shown indicates that individuals are most likely to subscribe when 3 or 6 days have passed between previous campaign calls."
+"The output shown indicates that the highest success occurs when individuals were not previously contacted."
 ;
 footnote2
+"However, those that subscribe on a later phone call, were more likely to do so when 3 or 6 days have passed between previous campaign calls."
+;
+footnote3
 "This can be used to optimize the success rate by waiting the ideal amount of days between phone calls."
 ;
 *Methodology: Format days between calls and compare to subscription status.;
