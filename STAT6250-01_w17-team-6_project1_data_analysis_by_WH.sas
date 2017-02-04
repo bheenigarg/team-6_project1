@@ -75,8 +75,10 @@ title2
 "Rationale: This would help the bank to know if a better strategy is needed."
 ;
 footnote1
-"Two variables should be analyzed: previous and y."
+"Two variables are being analyzed: previous and y."
 ;
+footnote2
+"
 *
 Methodology: Use PROC means to find average of phone calls for the "previous"
 variable. Use PROC freq to find the % of the "previous" variable with respect to "y" variable.
@@ -87,7 +89,6 @@ run;
 
 proc freq data = bank_data_analytic_file;
           tables y*previous;
-	  where y = "yes";
 run;
 title;
 footnote;
