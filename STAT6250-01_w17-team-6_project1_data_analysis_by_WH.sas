@@ -40,13 +40,16 @@ relative file import path to the current directory, if using Windows;
 %setup
 
 title1
-"Research Question: How effective were current marketing campaigns based on phone calls?"
+"Research Question: How effective were overall marketing campaigns based on phone calls?"
 ;
 title2
-"Rationale: Assessing the effectiveness of current marketing campaigns with phone calls can assist the bank in decisions to stay with phone calls or not."
+"Rationale: Assessing the effectiveness of overall marketing campaigns with phone calls can assist the bank in decisions to stay with phone calls or not."
 ;
 footnote1
-"Do not include previous marketing campaign information."
+"Average phone calls for campaign was 2.56 calls with a minimum of 1 and a maximum of 56 calls for a client client."
+;
+footnote2
+"With overall campaign, 36,548 clients (88.73%) did not subscribe and 4,640 clients (11.27%) did subscribe for term deposits."
 ;
 *
 Methodology: Use PROC means to find average of variable "campaign". Use PROC 
@@ -65,32 +68,29 @@ title;
 footnote;
 
 
-
 title1
-"Research Question: In comparison, which marketing campaign was more successful: previous or current?"
+"Research Question: With the previous campaign, was the campaign successful?"
 ;
 title2
 "Rationale: This would help the bank to know if a better strategy is needed."
 ;
 footnote1
-"Three variables should be analyzed: previous, campaign, and y."
+"Two variables should be analyzed: previous and y."
 ;
 *
-Methodology: Use PROC means to find average of phone calls for both "previous"
-and "campaign" variables . Use PROC freq to find the % of both "previous" and 
-"campaign" variables with respect to "y" variable.
+Methodology: Use PROC means to find average of phone calls for the "previous"
+variable. Use PROC freq to find the % of the "previous" variable with respect to "y" variable.
 ;
 proc means data = bank_data_analytic_file;
-           var previous campaign;
+           var previous;
 run;
 
 proc freq data = bank_data_analytic_file;
-          tables y*previous*campaign;
+          tables y*previous;
 	  where y = "yes";
 run;
 title;
 footnote;
-
 
 
 title1
