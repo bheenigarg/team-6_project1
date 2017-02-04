@@ -115,6 +115,10 @@ proc sort data = bank_data_analytic_file out = bank_data_analytic_file;
           by descending job;
 run;
 
+proc means data = bank_data_analytic_file mode;
+           var job;
+run;
+
 proc print data = bank_data_analytic_file;
            by job;
 	   pageby job;
