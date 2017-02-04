@@ -3,7 +3,26 @@
 * (set window width to banner width to calibrate line length to 80 characters *;
 *******************************************************************************;
 
-%include '.\STAT6250-01_w17-team-6_project_data_preparation.sas';
+* environmental setup;
+%let dataPrepFileName = STAT6250-01_w17-team-6_project1_data_preparation.sas;
+%let sasUEFilePrefix = team-6_project1;
+
+%macro setup;
+%if
+    &SYSSCP. = WIN
+%then
+    %do;
+        X
+        "cd ""%substr(%sysget(SAS_EXECFILEPATH),1,%eval(%length(%sysget(SAS_EXECFILEPATH))-%length(%sysget(SAS_EXECFILENAME))))"""
+        ;           
+        %include ".\&dataPrepFileName.";
+    %end;
+%else
+    %do;
+        %include "~/&sasUEFilePrefix./&dataPrepFileName.";
+    %end;
+%mend;
+%setup
 
 title1
 "Research Question 1: Does the number of campaign calls affect if they obtain a subscription?"
@@ -14,7 +33,8 @@ title2
 *Methodology: Use PROC FREQ to find frequency of subscription status with previous campaign calls.;
 
 proc freq data = bank_data;
-  tables campaign*subscription/nocum norow nocol list;
+  tables campaign*y/nocum norow nocol list;
+  format y $yfmt.;
 run;
 title;
 
@@ -27,8 +47,9 @@ title2
 *Methodology: Use PROC FREQ to observe the frequency of subscriptions for each interval.;
          
 proc freq data = bank_data;
-  tables duration*subscription/nocum norow nocol list;
-  format duration durfmt.;
+  tables duration*y/nocum norow nocol list;
+  format duration durfmt.
+         y $yfmt.;
 run;
 title;
 
@@ -41,7 +62,8 @@ title2
 *Methodology: Format days between calls and compare to subscription status.;
 
 proc freq data = bank_data;
-  tables pdays*subscription/nocum norow nocol list;
-  format pdays pdfmt.;
+  tables pdays*y/nocum norow nocol list;
+  format pdays pdfmt.
+         y $yfmt.;
 run;
 title;
