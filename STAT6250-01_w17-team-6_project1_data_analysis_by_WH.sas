@@ -77,8 +77,6 @@ title2
 footnote1
 "Two variables are being analyzed: previous and y."
 ;
-footnote2
-"
 *
 Methodology: Use PROC means to find average of phone calls for the "previous"
 variable. Use PROC freq to find the % of the "previous" variable with respect to "y" variable.
