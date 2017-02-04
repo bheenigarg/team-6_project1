@@ -111,20 +111,8 @@ footnote1
 Methodology: Use PROC sort to organize data to "job" variable. Use PROC print to
 show group of job occupations with the sum of only subscribers.
 ;
-proc sort data = bank_data_analytic_file out = bank_data_analytic_file;
-          by descending job;
-run;
-
 proc means data = bank_data_analytic_file mode;
            var job;
-run;
-
-proc print data = bank_data_analytic_file;
-           by job;
-	   pageby job;
-	   var job y;
-	   where y = yes;
-	   sum y;
 run;
 title;
 footnote;
