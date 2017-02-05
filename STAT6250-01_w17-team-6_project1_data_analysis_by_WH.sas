@@ -110,8 +110,9 @@ footnote1
 *
 Methodology: Use PROC MEANS to obtain the mode of variable "job".
 ;
-proc means data = bank_data_analytic_file mode;
-           var job;
+proc freq data = bank_data_analytic_file;
+           tables y*job;
+	   where y = "yes";
 run;
 title;
 footnote;
