@@ -105,10 +105,15 @@ title2
 "Rationale: This would help the bank with a target market to consider for future marketing campaigns."
 ;
 footnote1
-"The important variable that should be analyzed is "Job"."
+"The variables "y" and "job" are analyzed for this question."
 ;
+footnote2
+"Job occupation "Admin" had the highest subscription 1,352 out of 4,640 (29.14%) for term deposits."
+;
+footnote3
+"Bank should consider about target marketing in job occupation "Admin"."
 *
-Methodology: Use PROC MEANS to obtain the mode of variable "job".
+Methodology: Use PROC FREQ to obtain the percentages of all job occupation that subscribed to term deposits.
 ;
 proc freq data = bank_data_analytic_file;
            tables y*job;
