@@ -94,7 +94,9 @@ relative file import path to the current directory, if using Windows;
 %setup
 
 
-
+*********************************************************************************;
+* Research Question Analysis Starting Point;
+*********************************************************************************;
 title1
 "Research Question: What percentage of clients with housing and personal loans apply
 for a subscription?" 
