@@ -19,6 +19,60 @@ See included file for dataset properties
 %let dataPrepFileName = STAT6250-01_w17-team-6_project1_data_preparation.sas;
 %let sasUEFilePrefix = team-6_project1;
 
+* macro to set output destination;
+%macro setOutputDestination(destination);
+    ods _all_ close;
+    %if
+        %upcase(&destination.) = HTML
+    %then
+        %do;
+            ods html;
+        %end;
+    %else %if
+        %upcase(&destination.) = LISTING
+    %then
+        %do;
+            ods listing;
+        %end;
+    %else %if
+        %upcase(&destination.) = PDF
+    %then
+        %do;
+            ods pdf;
+        %end;
+    %else %if
+        %upcase(&destination.) = RTF
+    %then
+        %do;
+            ods rtf;
+        %end;
+    %else %if
+        %upcase(&destination.) = EXCEL
+    %then
+        %do;
+            ods excel;
+        %end;
+%mend;
+
+* current ODS destination to HTML output only;
+  %setOutputDestination(html)
+
+* uncomment the line below to close all active output destinations and switch
+  the current ODS destination to listing output only;
+/*%setOutputDestination(listing)*/
+
+* uncomment the line below to close all active output destinations and switch
+  the current ODS destination to PDF output only;
+/*%setOutputDestination(pdf)*/
+
+* uncomment the line below to close all active output destinations and switch
+  the current ODS destination to RTF output only;
+/*%setOutputDestination(rtf)*/
+
+* uncomment the line below to close all active output destinations and switch
+  the current ODS destination to Excel output only;
+/*%setOutputDestination(excel)*/
+
 * load external file that generates analytic dataset bank_data_analytic_file
 using a system path dependent on the host operating system, after setting the
 relative file import path to the current directory, if using Windows;
@@ -52,19 +106,19 @@ loans ia a lucrative target."
 ;
 
 footnote1
-"Out of 4640 clients who have subscribed for the term deposit, 37.76% have 
+"Out of 4,640 clients who have subscribed for the term deposit, 37.76% have 
 neither of the loans and 8.81% have both loans." 
 ;
 
 footnote2
 "It is rather curious to note that 45.22% of clients who have subscribed for
 the term deposit have a housing loan but not a personal loan. On the other
-hannd, only 5.91% of clients with personal loan but no housing loan, have
+hand, only 5.91% of clients with personal loan but no housing loan, have
 subscribed."
 ;
 
 Footnote3
-"Out of 36548 clients who haven't subscribed for the term deposit, 8.98% of clients
+"Out of 36,548 clients who haven't subscribed for the term deposit, 8.98% of clients
 have both loans while 39.16% have neither."
 ;
 *
