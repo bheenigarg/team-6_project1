@@ -11,13 +11,15 @@ Dataset Name: Bank Marketing
 
 Experimental Units: Bank Clients
 
-Number of Observations: 41188
+Number of Observations: 41,188
 
 Number of Features: 21
 
 Data Source : The file http://archive.ics.uci.edu/ml/machine-learning-databases/
-00222/bank-additional.zip was downloaded. An excel file bank-additional-full.
-xlsx from zip file was edited and formatted to have data in proper columns.
+00222/bank-additional.zip was downloaded. A CSV file, bank-additional-full.csv,
+with each data value separated with a semi-colon, was edited and formatted to 
+have data in proper columns.
+
 The data is related with direct marketing campaigns of a Portuguese banking 
 institution. The marketing campaigns were based on phone calls. Often, more than
 one contact to the same client was required, in order to access if the product 
@@ -29,7 +31,7 @@ MachineLearningExamples/BankMarketingDataSet.html
 Unique ID Schema: Client ID(made equal to Observation) is the primary key
 ;
 
-
+*********************************************************************************;
 *setting up environmetal parameters;
 
 %let inputDatasetURL=
