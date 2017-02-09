@@ -147,7 +147,8 @@ footnote3
 ;
 *
 Methodology: Use PROC means to find average of phone calls for the "previous"
-variable. Use PROC freq to find the % of the "previous" variable with respect to "y" variable.
+variable. Use PROC freq to find the % of the "previous" variable with respect 
+to "y" variable.
 ;
 proc means data = bank_data_analytic_file;
            var previous;
@@ -178,7 +179,8 @@ footnote2
 footnote3
 "Bank should consider about target marketing in job occupation "Admin"."
 *
-Methodology: Use PROC FREQ to obtain the percentages of all job occupation that subscribed to term deposits.
+Methodology: Use PROC FREQ to obtain the percentages of all job occupation that 
+subscribed to term deposits.
 ;
 proc freq data = bank_data_analytic_file;
            tables y*job;
