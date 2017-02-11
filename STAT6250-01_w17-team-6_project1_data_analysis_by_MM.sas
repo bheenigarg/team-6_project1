@@ -2,14 +2,16 @@
 **************** 80-character banner for column width reference ***************;
 * (set window width to banner width to calibrate line length to 80 characters *;
 *******************************************************************************;
-
+*IL: use line break to separate paragraphs;
 /*
 This file uses the following analytic dataset to address research
 questions regarding marketing calls from a Portugese bank to
 contact new clients to subscribe
+
 Dataset Name: FRPM1516_analytic_file created in external file
 STAT6250-01_w17-team-6_project1_data_preparation.sas, which is assumed to be
 in the same directory as this file
+
 See included file for dataset properties
 */
 
@@ -51,14 +53,14 @@ See included file for dataset properties
             ods excel;
         %end;
 %mend;
-
+*IL: I don't recommend leaving listing output as the default;
 /* uncomment the line below to close all active output destinations and switch
   the current ODS destination to HTML output only*/
-/*%setOutputDestination(html)*/
+/*/*%setOutputDestination(html)*/*/
 
 /* uncomment the line below to close all active output destinations and switch
   the current ODS destination to listing output only*/
-%setOutputDestination(listing)
+/*%setOutputDestination(listing)*/
 
 /* uncomment the line below to close all active output destinations and switch
   the current ODS destination to PDF output only*/
@@ -105,9 +107,12 @@ footnote2
 footnote3
 "This information can result in less wasted time by only focusing on campaigning to individuals who have previously received less phone calls."
 ;
+*IL: wrap comments at 80 characters;
 *Methodology: Use PROC FREQ to find frequency of subscription status with previous campaign calls.;
 
 proc freq data = bank_data_analytic_file;
+    *IL: consider creating a cross-tab, to make the results easier to read in
+         the output table;
   tables campaign*y/nocum norow nocol list;
   format y $yfmt.;
 run;

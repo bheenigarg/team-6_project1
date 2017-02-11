@@ -98,6 +98,8 @@ relative file import path to the current directory, if using Windows;
 *******************************************************************************;
 * Research Question Analysis Starting Point 1;
 *******************************************************************************;
+*IL: Consider restructing either the analysis steps or the use of footnotes
+     so that output reads like a research narrative;
 title1
 "Research Question: How effective were overall marketing campaigns based on phone calls?"
 ;
@@ -120,8 +122,9 @@ run;
 
 proc freq data = bank_data_analytic_file;
           tables y*campaign;
-	  label y = "Subscription Status";
-	  title 'Current Campaign Status';
+      label y = "Subscription Status";
+      *IL: I don't recommend embeded title -- all titles are global;
+      title 'Current Campaign Status';
 run;
 title;
 footnote;
@@ -170,8 +173,9 @@ title1
 title2
 "Rationale: This would help the bank with a target market to consider for future marketing campaigns."
 ;
+*IL: switch embedded quotes to single quotes;
 footnote1
-"The variables "y" and "job" are analyzed for this question."
+"The variables 'y' and 'job' are analyzed for this question."
 ;
 footnote2
 "Job occupation "Admin" had the highest subscription 1,352 out of 4,640 (29.14%) for term deposits."
@@ -182,9 +186,11 @@ footnote3
 Methodology: Use PROC FREQ to obtain the percentages of all job occupation that 
 subscribed to term deposits.
 ;
-proc freq data = bank_data_analytic_file;
-           tables y*job;
-	   where y = "yes";
+*IL: is there a need for a cross-tab table?;
+*IL: consider ordering output by freq;
+proc freq order=freq data = bank_data_analytic_file;
+           tables job;
+       where y = "yes";
 run;
 title;
 footnote;

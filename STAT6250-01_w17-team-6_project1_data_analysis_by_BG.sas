@@ -97,9 +97,9 @@ relative file import path to the current directory, if using Windows;
 *********************************************************************************;
 * Research Question Analysis Starting Point;
 *********************************************************************************;
+* IL: don't wrap your string literals;
 title1
-"Research Question: What percentage of clients with housing and personal loans apply
-for a subscription?" 
+"Research Question: What percentage of clients with housing and personal loans apply for a subscription?" 
 ;
 
 title2
@@ -131,10 +131,13 @@ client.
 ;
 
 proc freq data = bank_data_analytic_file;
+          *IL: change Y to a more meaningful variable name;
+          *IL: consider using a format to spell out data values;
           tables y*housing*loan/norow nocol ;
-		  label loan = "Personal"
+          label loan = "Personal"
                    y = "Subscription Status";
-		  title 'Subscription Status by Loans';
+          *IL: don't embed titles b/c all titles are global;
+          title 'Subscription Status by Loans';
 run;
 title;
 footnote;
@@ -222,20 +225,20 @@ proc logistic data = bank_data_analytic_file descending;
                     default  
                     housing
                     loan / param=ref;
-	       model y = age
-		         job
-		         marital
-		         education
-		         default
-		         housing
-		         loan;
-			  
+           model y = age
+                 job
+                 marital
+                 education
+                 default
+                 housing
+                 loan;
+              
               format y $yfmt. age agefmt.;
 run;
 title;
 footnote;
 
-
+*IL: there's no reason for the blank lines -- usually one is enough;
 
 
 
